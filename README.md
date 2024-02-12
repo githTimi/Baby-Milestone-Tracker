@@ -9,4 +9,4 @@ internal css for the styling.						### The App has 4 screens ; Homescreen, AddSc
 ==========> MILESTONES LOGIC: the milestones are rendered using a js libary react native timeline flatlist, which takes in data gotten from the Add screen and use it to render the Milestones<====
 =====> State Storage Mechanism: the  added and used dat by the users were was made possible using redux ,all the data needed for the milestone was stored n the key reducer<=========
 =====> Logic for the date selected by the users was done by using a js libary <=====
-{note: the app is not completed i have not finished implementing the milestone editing logic and arranging the app well due to constraints i had concerning my home light }
+
