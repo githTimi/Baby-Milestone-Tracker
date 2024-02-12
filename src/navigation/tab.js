@@ -9,91 +9,91 @@ import Editing from '../screens/Editing';
 
 const Tab = createBottomTabNavigator();
 
-const Tabs = ()=>{
-    return(
-        <Tab.Navigator
-           screenOptions={()=>({
-            headerShown: false,
-            tabBarLabelStyle:{
-                fontSize:20,
-                
-            },
-            
-            tabBarActiveTintColor:'purple',
-            tabBarStyle: {
-                backgroundColor: '#5856D6',
-              
-            }
-            
-           })   }
-        >
-        <Tab.Screen name="Home" component={Home}
-           options={{
-            tabBarIcon: ({focused}) => (
-                <View
-                  style={{
-                    top: Platform.OS === 'ios' ? 10 : 0,
-                  }}>
-                  <AntDesign
-                    name="barchart"
-                    size={30}
-                    color={focused ? 'white' : '#9594e5'}
-                  />
-                </View>
-              ),
-           }}
-        />
-        <Tab.Screen name="Add" component={Add} 
-            options={{
-                tabBarIcon: ({focused}) => (
-                    <View
-                      style={{
-                        top: Platform.OS === 'ios' ? 10 : 0,
-                      }}>
-                      <Entypo
-                        name="plus"
-                        size={30}
-                        color={focused ? 'white' : '#9594e5'}
-                      />
-                    </View>
-                  ),
-               }}
-        />
-         <Tab.Screen name="Edit" component={Edit} 
-            options={{
-                tabBarIcon: ({focused}) => (
-                    <View
-                      style={{
-                        top: Platform.OS === 'ios' ? 10 : 0,
-                      }}>
-                      <Entypo
-                        name="edit"
-                        size={30}
-                        color={focused ? 'white' : '#9594e5'}
-                      />
-                    </View>
-                  ),
-               }}
-        />
+const Tabs = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={() => ({
+        headerShown: false,
+        tabBarLabelStyle: {
+          fontSize: 20,
 
-<Tab.Screen name="Editing" component={Editing} 
-            options={{
-                tabBarIcon: ({focused}) => (
-                    <View
-                      style={{
-                        top: Platform.OS === 'ios' ? 10 : 0,
-                      }}>
-                      <Entypo
-                        name="edit"
-                        size={30}
-                        color={focused ? 'white' : '#9594e5'}
-                      />
-                    </View>
-                  ),
-               }}
-        />
-      </Tab.Navigator>
-    )
+        },
+
+        tabBarActiveTintColor: 'purple',
+        tabBarStyle: {
+          backgroundColor: '#5856D6',
+
+        }
+
+      })}
+    >
+      <Tab.Screen name="Home" component={Home}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                top: Platform.OS === 'ios' ? 10 : 0,
+              }}>
+              <AntDesign
+                name="barchart"
+                size={30}
+                color={focused ? 'white' : '#9594e5'}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen name="Add" component={Add}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                top: Platform.OS === 'ios' ? 10 : 0,
+              }}>
+              <Entypo
+                name="plus"
+                size={30}
+                color={focused ? 'white' : '#9594e5'}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen name="Edit" component={Edit}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                top: Platform.OS === 'ios' ? 10 : 0,
+              }}>
+              <Entypo
+                name="edit"
+                size={30}
+                color={focused ? 'white' : '#9594e5'}
+              />
+            </View>
+          ),
+        }}
+      />
+
+      <Tab.Screen name="Editing" component={Editing}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                top: Platform.OS === 'ios' ? 10 : 0,
+              }}>
+              <Entypo
+                name="edit"
+                size={30}
+                color={focused ? 'white' : '#9594e5'}
+              />
+            </View>
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  )
 }
 
 export default Tabs

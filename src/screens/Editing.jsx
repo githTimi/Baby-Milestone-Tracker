@@ -3,17 +3,49 @@ import {
   Text,
   Pressable,
   TextInput,
-  Dimensions,
  
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useFonts } from "expo-font";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { setEdit} from "../states/actions/action";
+import { useIsFocused } from "@react-navigation/native";
 
 const Editing = ({ navigation }) => {
   const mile = useSelector((state) => state.selectedMile);
+  const isFocused = useIsFocused();
 
+
+ 
+
+  const [type, setType] = useState(mile.title);
+  const [notes, setNotes] = useState(mile.description);
+  const [date, setDate] = useState(new Date());
+  const [show, setShow] = useState(false);
+ 
+
+    
+  const tim = date.toLocaleDateString();
+  const data = {
+    id:mile.id,
+    time: tim,
+    title: type,
+    description: notes,
+    
+  };
+
+  useEffect(() => {
+
+    if(isFocused){
+      setType(mile.title)
+      setNotes(mile.description)
+      
+    }
+  
+
+  },[isFocused]);  
+ 
   const dispatch = useDispatch();
   const [fontsLoaded] = useFonts({
     Palanquin: require("../../assets/fonts/Palanquin-Medium.ttf"),
@@ -25,11 +57,8 @@ const Editing = ({ navigation }) => {
 
 
 
-  const [type, setType] = useState(mile.title);
-  const [notes, setNotes] = useState(mile.description);
-  const [date, setDate] = useState(new Date());
-  const [show, setShow] = useState(false);
-  console.log(mile.title);
+ 
+
   const dateSet = (e, selectedDate) => {
     setDate(selectedDate);
     setShow(false);
@@ -114,7 +143,7 @@ const Editing = ({ navigation }) => {
           }}
         >
           {" "}
-          Pick Date{" "}
+          Set Date{" "}
         </Text>
       </Pressable>
       {show && <DateTimePicker mode="date" value={date} onChange={dateSet} />}
@@ -129,7 +158,13 @@ const Editing = ({ navigation }) => {
           marginTop: 10,
           fontFamily: "Palanquin",
         }}
-        onPress={() => {}}
+        onPress={() => {
+           dispatch(setEdit(data))
+       
+           
+          navigation.navigate("Edit");
+         
+        }}
       >
         <Text
           style={{
@@ -144,23 +179,7 @@ const Editing = ({ navigation }) => {
         </Text>
       </Pressable>
 
-      <Pressable
-        style={{
-          borderRadius: 20,
-          marginTop: 10,
-          padding: 10,
-          elevation: 2,
-          backgroundColor: "#2196F3",
-        }}
-        onPress={() => {
-       
-
-          navigation.navigate("Edit");
-          console.log(mile.title);
-        }}
-      >
-        <Text style={{ fontFamily: "Palanquin" }}>Close Edit</Text>
-      </Pressable>
+      
     </View>
   );
 };

@@ -34,9 +34,9 @@ const Add = () => {
   const [notes, setNotes] = useState("");
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
-
+   
   const tim = date.toLocaleDateString();
-
+ 
   const dateSet = (e, selectedDate) => {
     setDate(selectedDate);
     setShow(false);

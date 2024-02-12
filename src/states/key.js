@@ -21,18 +21,21 @@ function key(state = initialState, action) {
       }
     case 'SET_ID':
     
-      const newObj = state.mile.find((m) => m.id == action.payload)
+     
       return {
-        ...state, mile: [...state.mile],
-        selectedMile: [...state.selectedMile, newObj]
+        ...state, 
+        selectedMile: {...state.mile.find((m) => m.id == action.payload)}
 
       }
-     /*case 'SET_EMPTY':
-      const filteredData = state.selectedMile.filter(s => s.id !== action.payload)
-      return {
-        ...state,
-        selectedMile: filteredData
-      }   */
+     case 'SET_EDIT':
+      
+      return {...state,
+        mile:state.mile.map((i)=> i.id !== action.payload.id ? i :
+      action.payload )  
+    } 
+      
+    
+
     default: return state
   }
 }

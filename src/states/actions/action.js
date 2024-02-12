@@ -12,12 +12,13 @@ function addMile(data) {
         payload: data
     }
 }
-/*
-function setEmpty(data) {
+
+function setEdit(data) {
     return {
-        type: "SET_EMPTY",
-        payload: data.id
+        type: "SET_EDIT",
+        payload: data
     }
 }
-*/
-export { setId, addMile }
+
+
+export { setId, addMile, setEdit }

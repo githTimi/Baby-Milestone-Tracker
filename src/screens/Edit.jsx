@@ -31,11 +31,6 @@ const Edit = ({ navigation }) => {
   const screenWidth = Dimensions.get("window").width;
 
  
-  /* const press=()=>{
-     console.log('pressed')
-     dispatch(setSelectedMile(rowData.id))
-     setModalVisible(!modalVisible);
-   }  */
   const RH = (percentage) => {
     return (percentage / 100) * screenHeight;
   };
@@ -71,9 +66,11 @@ const Edit = ({ navigation }) => {
       <Pressable
         style={{ flex: 1 }}
         onPress={() => {
-          console.log(rowData.id);
+         
           dispatch(setId(rowData.id));
+
           navigation.navigate("Editing");
+         
         }}
       >
         {title}
